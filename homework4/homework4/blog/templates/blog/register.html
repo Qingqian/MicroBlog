@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Blog -- Register</title>
+	</head>
+
+	<body>
+		{% load staticfiles %}
+		<link rel="stylesheet" type = "text/css" href="{% static 'css/bootstrap.css' %}">
+		<div style="text-align: center; margin: 0 auto">
+			{% for error in form.non_field_errors %}
+			<p style="color: red">
+			{{ error }}
+			</p>
+			{% endfor %}
+			
+			<h1 style="color:orange">
+				RegisterPage for Blog
+			</h1>
+			<form method="post" action="{% url 'register' %}">
+			<table style="text-align: center; margin: 0 auto">
+				{% for field in form.visible_fields %}
+				<tr>
+					<td >{{field.label_tag}}</td>
+					<td >{{field}}</td>
+					<td style="color: red">{{field.errors}}</td>
+				</tr>
+				{% endfor %}
+			</table>
+			{% for field in form.hidden_fields %}
+			{{field}}
+			{% endfor %}
+			{% csrf_token %}
+			<div>
+			<input type="submit" value="Register"/>
+			</div>
+			</form>
+		</div>
+	</body>
+</html>

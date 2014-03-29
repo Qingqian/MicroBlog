@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+{% extends "blog/base.html" %}
+
+        {%block content%}
+        <div class="container">
+            <div class="row">
+                <div class = "col-md-6">
+                	<p>
+						<form method ="post" action="{% url 'add' %}" enctype="multipart/form-data">
+						<table class ="tabelindex">
+							{{form}}
+						</table>
+						<div class="wrapper">
+							<input type="submit" value ="Add Post" class="buttonholder">
+						</div>
+						{% csrf_token %}
+						</form>
+					</p>
+                    <ul class="posts">
+                        {% for post in posts %}
+                        <li>{{post.text}} ({{post.time}})<br>
+							{% if post.picture %}
+							<img src="{% url 'photo' post.id %}" alt="{{post.text}} {{post.time}}" width="300px"><br>
+							{% endif %}
+							<a href= "/blog/deletePost/{{post.id}}">Delete</a>
+							{% endfor %}
+						</li>
+					</ul>
+				</div>
+            </div>
+        </div>
+		{%endblock%}

@@ -1,0 +1,16 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Confirmation Page</title>
+	</head>
+
+	<body>
+		{% load staticfiles %}
+		<link rel="stylesheet" type = "text/css" href="{% static 'css/bootstrap.css' %}">
+		
+		<p>
+			You have successfully create your account for the Blog.
+		</p>
+		<a href="{% url 'home' %}">Back to home</a>
+	</body>
+</html>

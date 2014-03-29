@@ -1,0 +1,37 @@
+
+.posts {
+	padding: 0;
+	list-style: none;
+}
+
+.post {
+	padding: 25px 30px;
+	margin-bottom: 30px;
+	background: white;
+}
+
+.post-title {
+	font-size: 30px;
+}
+
+.content{
+	font-size: 20px;
+	color: BLACK;
+	padding: 0 0 17px;
+}
+
+#new-post-form {
+	position: fixed;
+	right: 20px;
+
+
+}
+
+#new-post-form form {
+	padding: 30px;
+	background: white;
+}
+
+.btn, input, textarea {
+	border-radius: 0 !important;
+}
